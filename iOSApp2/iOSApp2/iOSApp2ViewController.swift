@@ -8,9 +8,86 @@
 import UIKit
 
 class iOSApp2ViewController: UITableViewController {
+    // MARK: - Actions
+       @IBAction func addItem() {
+           let newRowIndex = items.count
+
+           let item = MenuItem(text: "I am a new row", checked: false)
+           items.append(item)
+
+           let indexPath = IndexPath(row: newRowIndex, section: 0)
+           let indexPaths = [indexPath]
+           tableView.insertRows(at: indexPaths, with: .automatic)
+       }
+    // MARK: - Actions
+    @IBAction func cancel() {
+      navigationController?.popViewController(animated: true)
+    }
+
+    @IBAction func done() {
+      navigationController?.popViewController(animated: true)
+    }
+
+    override func tableView(
+      _ tableView: UITableView,
+      commit editingStyle: UITableViewCell.EditingStyle,
+      forRowAt indexPath: IndexPath
+    ) {
+      // 1
+      items.remove(at: indexPath.row)
+
+      // 2
+      let indexPaths = [indexPath]
+      tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+    var items = [
+        MenuItem(text: "Double Double Coffee", checked: false),
+        MenuItem(text: "Timbits", checked: false),
+        MenuItem(text: "Iced Capp", checked: false),
+        MenuItem(text: "Bagel with Cream Cheese", checked: false),
+        MenuItem(text: "Breakfast Sandwich", checked: false),
+        MenuItem(text: "Chili", checked: false),
+        MenuItem(text: "Donut", checked: false),
+        MenuItem(text: "Muffin", checked: false),
+        MenuItem(text: "Soup", checked: false),
+        MenuItem(text: "Smoothie", checked: false),
+        MenuItem(text: "Tim Hortons Tea", checked: false),
+        MenuItem(text: "Hot Chocolate", checked: false),
+        MenuItem(text: "Frozen Lemonade", checked: false),
+        MenuItem(text: "Steeped Tea", checked: false),
+        MenuItem(text: "Latte", checked: false),
+        MenuItem(text: "Cappuccino", checked: false),
+        MenuItem(text: "Mocha", checked: false),
+        MenuItem(text: "Espresso", checked: false),
+        MenuItem(text: "Café Mocha", checked: false),
+        MenuItem(text: "Hot Apple Cider", checked: false),
+        MenuItem(text: "Grilled Cheese", checked: false),
+        MenuItem(text: "Turkey Bacon Club", checked: false),
+        MenuItem(text: "BLT Sandwich", checked: false),
+        MenuItem(text: "Ham & Cheese Sandwich", checked: false),
+        MenuItem(text: "Chicken Salad Wrap", checked: false),
+        MenuItem(text: "Garden Salad", checked: false),
+        MenuItem(text: "Caesar Salad", checked: false),
+        MenuItem(text: "Chicken Noodle Soup", checked: false),
+        MenuItem(text: "Cream of Broccoli Soup", checked: false),
+        MenuItem(text: "Beef Stew", checked: false),
+        MenuItem(text: "Mac & Cheese", checked: false),
+        MenuItem(text: "Potato Wedges", checked: false),
+        MenuItem(text: "Hash Brown", checked: false),
+        MenuItem(text: "Croissant", checked: false),
+        MenuItem(text: "Strawberry Cheesecake Donut", checked: false),
+        MenuItem(text: "Boston Cream Donut", checked: false),
+        MenuItem(text: "Apple Fritter", checked: false),
+        MenuItem(text: "Chocolate Chip Cookie", checked: false),
+        MenuItem(text: "Oatmeal Raisin Cookie", checked: false),
+        MenuItem(text: "Iced Coffee", checked: false)
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         // Do any additional setup after loading the view.
     }
     // MARK: - Table View Data Source
@@ -18,7 +95,7 @@ class iOSApp2ViewController: UITableViewController {
       _ tableView: UITableView,
       numberOfRowsInSection section: Int
     ) -> Int {
-      return 42
+      return items.count
     }
 
     override func tableView(
@@ -31,105 +108,39 @@ class iOSApp2ViewController: UITableViewController {
 
       // Add the following code
       let label = cell.viewWithTag(1000) as! UILabel
+      label.text = items[indexPath.row].text
 
-        if indexPath.row == 0 {
-           label.text = "Double Double Coffee"
-         } else if indexPath.row == 1 {
-           label.text = "Timbits"
-         } else if indexPath.row == 2 {
-           label.text = "Iced Capp"
-         } else if indexPath.row == 3 {
-           label.text = "Bagel with Cream Cheese"
-         } else if indexPath.row == 4 {
-           label.text = "Breakfast Sandwich"
-         } else if indexPath.row == 5 {
-           label.text = "Chili"
-         } else if indexPath.row == 6 {
-           label.text = "Donut"
-         } else if indexPath.row == 7 {
-           label.text = "Muffin"
-         } else if indexPath.row == 8 {
-           label.text = "Soup"
-         } else if indexPath.row == 9 {
-           label.text = "Smoothie"
-         } else if indexPath.row == 10 {
-           label.text = "Tim Hortons Tea"
-         } else if indexPath.row == 11 {
-           label.text = "Hot Chocolate"
-         } else if indexPath.row == 12 {
-           label.text = "Frozen Lemonade"
-         } else if indexPath.row == 13 {
-           label.text = "Steeped Tea"
-         } else if indexPath.row == 14 {
-           label.text = "Latte"
-         } else if indexPath.row == 15 {
-           label.text = "Cappuccino"
-         } else if indexPath.row == 16 {
-           label.text = "Mocha"
-         } else if indexPath.row == 17 {
-           label.text = "Espresso"
-         } else if indexPath.row == 18 {
-           label.text = "Café Mocha"
-         } else if indexPath.row == 19 {
-           label.text = "Hot Apple Cider"
-         } else if indexPath.row == 20 {
-           label.text = "Grilled Cheese"
-         } else if indexPath.row == 21 {
-           label.text = "Turkey Bacon Club"
-         } else if indexPath.row == 22 {
-           label.text = "BLT Sandwich"
-         } else if indexPath.row == 23 {
-           label.text = "Ham & Cheese Sandwich"
-         } else if indexPath.row == 24 {
-           label.text = "Chicken Salad Wrap"
-         } else if indexPath.row == 25 {
-           label.text = "Garden Salad"
-         } else if indexPath.row == 26 {
-           label.text = "Caesar Salad"
-         } else if indexPath.row == 27 {
-           label.text = "Chicken Noodle Soup"
-         } else if indexPath.row == 28 {
-           label.text = "Cream of Broccoli Soup"
-         } else if indexPath.row == 29 {
-           label.text = "Beef Stew"
-         } else if indexPath.row == 30 {
-           label.text = "Mac & Cheese"
-         } else if indexPath.row == 31 {
-           label.text = "Potato Wedges"
-         } else if indexPath.row == 32 {
-           label.text = "Hash Brown"
-         } else if indexPath.row == 33 {
-           label.text = "Croissant"
-         } else if indexPath.row == 34 {
-           label.text = "Strawberry Cheesecake Donut"
-         } else if indexPath.row == 35 {
-           label.text = "Boston Cream Donut"
-         } else if indexPath.row == 36 {
-           label.text = "Apple Fritter"
-         } else if indexPath.row == 37 {
-           label.text = "Chocolate Chip Cookie"
-         } else if indexPath.row == 38 {
-           label.text = "Oatmeal Raisin Cookie"
-         } else if indexPath.row == 39 {
-           label.text = "Iced Coffee"
-         }
-
-         return cell
-       }
+      return cell
+    }
     // MARK: - Table View Delegate
     override func tableView(
       _ tableView: UITableView,
       didSelectRowAt indexPath: IndexPath
     ) {
       if let cell = tableView.cellForRow(at: indexPath) {
-        if cell.accessoryType == .none {
-          cell.accessoryType = .checkmark
-        } else {
-          cell.accessoryType = .none
-        }
-      }
+           let item = items[indexPath.row]
+           item.checked.toggle()
+           configureCheckmark(for: cell, at: indexPath)
+       }
+       tableView.deselectRow(at: indexPath, animated: true)
+   }
 
-      tableView.deselectRow(at: indexPath, animated: true)
-    }
+   func configureCheckmark(
+       for cell: UITableViewCell,
+       at indexPath: IndexPath
+   ) {
+       let item = items[indexPath.row]
+       cell.accessoryType = item.checked ? .checkmark : .none
+   }
+
 }
 
+class MenuItem {
+    var text: String
+    var checked: Bool
+    
+    init(text: String, checked: Bool) {
+        self.text = text
+        self.checked = checked
+    }
+}
