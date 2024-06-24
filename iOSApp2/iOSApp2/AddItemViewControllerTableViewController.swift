@@ -1,9 +1,6 @@
 
 import UIKit
 
-// Ensure MenuItem is accessible
-
-
 protocol AddItemViewControllerDelegate: AnyObject {
   func addItemViewControllerDidCancel(_ controller: AddItemViewController)
   func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: MenuItem)
@@ -22,6 +19,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         if let item = itemToEdit {
             title = "Edit Item"
             textField.text = item.text
+            doneBarButton.isEnabled = true
         }
     }
 

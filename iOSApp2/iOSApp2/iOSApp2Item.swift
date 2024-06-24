@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuItem: NSObject {
+class MenuItem: NSObject, Codable {
     var text: String
     var checked: Bool
     

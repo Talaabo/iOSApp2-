@@ -63,10 +63,25 @@ class iOSApp2ViewController: UITableViewController, AddItemViewControllerDelegat
        ]
     
     
+    func documentsDirectory() -> URL {
+      let paths = FileManager.default.urls(
+        for: .documentDirectory,
+        in: .userDomainMask)
+      return paths[0]
+    }
+
+    func dataFilePath() -> URL {
+      return documentsDirectory().appendingPathComponent("MenuItem.plist")
+    }
+  
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+        print("Documents folder is \(documentsDirectory())")
+          print("Data file path is \(dataFilePath())")
     }
+    
     
     // MARK: - Table View Data Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,6 +93,7 @@ class iOSApp2ViewController: UITableViewController, AddItemViewControllerDelegat
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = items[indexPath.row].text
         return cell
+       
     }
     
     // MARK: - Table View Delegate
@@ -88,6 +104,7 @@ class iOSApp2ViewController: UITableViewController, AddItemViewControllerDelegat
             configureCheckmark(for: cell, with: item)
         }
         tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
     func configureCheckmark(for cell: UITableViewCell, with item: MenuItem) {
@@ -106,6 +123,7 @@ class iOSApp2ViewController: UITableViewController, AddItemViewControllerDelegat
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
         navigationController?.popViewController(animated: true)
+       
     }
 
     func addItemViewController(_ controller: AddItemViewController, didFinishEditing item: MenuItem) {
@@ -116,6 +134,7 @@ class iOSApp2ViewController: UITableViewController, AddItemViewControllerDelegat
             }
         }
         navigationController?.popViewController(animated: true)
+       
     }
     
     func configureText(for cell: UITableViewCell, with item: MenuItem) {
@@ -135,6 +154,24 @@ class iOSApp2ViewController: UITableViewController, AddItemViewControllerDelegat
                 controller.itemToEdit = items[indexPath.row]
             }
         }
+        func saveMenuItems() {
+          // 1
+          let encoder = PropertyListEncoder()
+          // 2
+          do {
+            // 3
+            let data = try encoder.encode(items)
+            // 4
+            try data.write(
+              to: dataFilePath(),
+              options: Data.WritingOptions.atomic)
+            // 5
+          } catch {
+            // 6
+            print("Error encoding item array: \(error.localizedDescription)")
+          }
+        }
+   
     }
 }
 
