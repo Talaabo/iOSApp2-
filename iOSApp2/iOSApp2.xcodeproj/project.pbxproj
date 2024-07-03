@@ -15,6 +15,10 @@
 		EB000DA52C15EB70001A5C75 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EB000DA42C15EB70001A5C75 /* Base */; };
 		EB1927A72C1FFF77005EB7C8 /* iOSApp2Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1927A62C1FFF77005EB7C8 /* iOSApp2Item.swift */; };
 		EB1927A92C2037C3005EB7C8 /* AddItemViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1927A82C2037C3005EB7C8 /* AddItemViewControllerTableViewController.swift */; };
+		EB3DB13D2C2C6146001B0580 /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DB13C2C2C6146001B0580 /* AllListsViewController.swift */; };
+		EB6888E02C308A2F005E2AAE /* iOSApp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6888DF2C308A2F005E2AAE /* iOSApp2.swift */; };
+		EB6888E22C30DAE9005E2AAE /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6888E12C30DAE9005E2AAE /* ListDetailViewController.swift */; };
+		EB6A93AE2C3416DF00679FD8 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6A93AD2C3416DF00679FD8 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		EB000DA62C15EB70001A5C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB1927A62C1FFF77005EB7C8 /* iOSApp2Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp2Item.swift; sourceTree = "<group>"; };
 		EB1927A82C2037C3005EB7C8 /* AddItemViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		EB3DB13C2C2C6146001B0580 /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
+		EB6888DF2C308A2F005E2AAE /* iOSApp2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp2.swift; sourceTree = "<group>"; };
+		EB6888E12C30DAE9005E2AAE /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		EB6A93AD2C3416DF00679FD8 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,10 @@
 				EB000DA62C15EB70001A5C75 /* Info.plist */,
 				EB1927A62C1FFF77005EB7C8 /* iOSApp2Item.swift */,
 				EB1927A82C2037C3005EB7C8 /* AddItemViewControllerTableViewController.swift */,
+				EB3DB13C2C2C6146001B0580 /* AllListsViewController.swift */,
+				EB6888DF2C308A2F005E2AAE /* iOSApp2.swift */,
+				EB6888E12C30DAE9005E2AAE /* ListDetailViewController.swift */,
+				EB6A93AD2C3416DF00679FD8 /* DataModel.swift */,
 			);
 			path = iOSApp2;
 			sourceTree = "<group>";
@@ -144,11 +156,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB6888E02C308A2F005E2AAE /* iOSApp2.swift in Sources */,
 				EB000D9D2C15EB6F001A5C75 /* iOSApp2ViewController.swift in Sources */,
 				EB1927A72C1FFF77005EB7C8 /* iOSApp2Item.swift in Sources */,
+				EB3DB13D2C2C6146001B0580 /* AllListsViewController.swift in Sources */,
 				EB000D992C15EB6F001A5C75 /* AppDelegate.swift in Sources */,
 				EB1927A92C2037C3005EB7C8 /* AddItemViewControllerTableViewController.swift in Sources */,
 				EB000D9B2C15EB6F001A5C75 /* SceneDelegate.swift in Sources */,
+				EB6888E22C30DAE9005E2AAE /* ListDetailViewController.swift in Sources */,
+				EB6A93AE2C3416DF00679FD8 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

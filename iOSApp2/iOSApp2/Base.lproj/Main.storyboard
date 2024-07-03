@@ -7,7 +7,96 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tim Menu-->
+        <!--All Lists-->
+        <scene sceneID="w1d-Gq-DKF">
+            <objects>
+                <tableViewController title="iOSApp2" id="0Qm-fO-vwU" userLabel="All Lists" customClass="AllListsViewController" customModule="iOSApp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ql9-nX-hEB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="0Qm-fO-vwU" id="Xtd-Aq-Ps3"/>
+                            <outlet property="delegate" destination="0Qm-fO-vwU" id="V5g-u8-Rxx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="iOSApp2" id="NkX-h6-uPQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kgd-fV-y7Q">
+                            <connections>
+                                <segue destination="qLN-U8-bGS" kind="show" id="7V4-5d-7ch"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="uiR-nI-tm7" kind="show" identifier="ShowiOSApp2" id="Kfq-wm-eQ4"/>
+                        <segue destination="qLN-U8-bGS" kind="show" identifier="AddiOSApp2" id="YNf-EG-9jK"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vWC-Rk-yr5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877" y="-51"/>
+        </scene>
+        <!--Add iOSApp2-->
+        <scene sceneID="ibe-4s-Owl">
+            <objects>
+                <tableViewController storyboardIdentifier="ListDetailViewController" id="qLN-U8-bGS" customClass="ListDetailViewController" customModule="iOSApp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="1s5-jV-MR7">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="kcA-gu-270">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GJT-xE-Dre">
+                                        <rect key="frame" x="0.0" y="18" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GJT-xE-Dre" id="9gR-VP-7x8">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the List" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tJa-Et-8xo">
+                                                    <rect key="frame" x="35" y="4" width="309" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="qLN-U8-bGS" eventType="editingDidEndOnExit" id="Lnr-mx-rra"/>
+                                                        <outlet property="delegate" destination="qLN-U8-bGS" id="uFZ-Ca-OIL"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="qLN-U8-bGS" id="KPn-7D-tNB"/>
+                            <outlet property="delegate" destination="qLN-U8-bGS" id="Mib-41-PXW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add iOSApp2" largeTitleDisplayMode="never" id="KKy-vX-1y4">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="ccP-Mz-V0b">
+                            <connections>
+                                <action selector="cancel" destination="qLN-U8-bGS" id="ZWs-sA-Kue"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="zeb-F2-srh">
+                            <connections>
+                                <action selector="done" destination="qLN-U8-bGS" id="oaQ-9d-LcW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneBarButton" destination="zeb-F2-srh" id="daN-Nj-dgK"/>
+                        <outlet property="textField" destination="tJa-Et-8xo" id="BhZ-jI-TeQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6gG-fN-akk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="676"/>
+        </scene>
+        <!--       Name of the Tim-menu-->
         <scene sceneID="pIr-ky-Aq5">
             <objects>
                 <tableViewController id="uiR-nI-tm7" customClass="iOSApp2ViewController" customModule="iOSApp2" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,7 +138,7 @@
                             <outlet property="delegate" destination="uiR-nI-tm7" id="2Mr-Bp-CVm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tim Menu" id="kec-MG-zlq">
+                    <navigationItem key="navigationItem" title="       Name of the Tim-menu" id="kec-MG-zlq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6qS-jS-pNU">
                             <connections>
                                 <segue destination="9z0-TM-cRj" kind="show" identifier="AddItem" id="YxD-Eb-Tzy"/>
@@ -59,7 +148,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QdJ-9t-8Zc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1600.7633587786258" y="-51.408450704225352"/>
+            <point key="canvasLocation" x="1697" y="-51"/>
         </scene>
         <!--Add item-->
         <scene sceneID="EA9-j0-Pjc">
@@ -103,7 +192,7 @@
                             <outlet property="delegate" destination="9z0-TM-cRj" id="WnK-07-hbU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="DNf-HQ-K5d">
+                    <navigationItem key="navigationItem" title="Add Item" id="DNf-HQ-K5d">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bvG-Mq-nav">
                             <connections>
                                 <action selector="cancel" destination="9z0-TM-cRj" id="c5I-E4-Ns8"/>
@@ -122,7 +211,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YO5-52-5fJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2383.969465648855" y="-51.408450704225352"/>
+            <point key="canvasLocation" x="2534" y="-51"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cag-y8-dBC">
@@ -135,35 +224,17 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="FOP-he-JVR" kind="relationship" relationship="rootViewController" id="BS0-ou-UTa"/>
+                        <segue destination="0Qm-fO-vwU" kind="relationship" relationship="rootViewController" id="lq8-Tq-xGm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCO-nd-Kdt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="42" y="-51"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="h9F-RJ-z5o">
-            <objects>
-                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="FOP-he-JVR" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="3Zn-Ag-i0h"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2ZG-56-VBX">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="uiR-nI-tm7" kind="relationship" relationship="rootViewController" id="7BD-CZ-5h7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DCU-Hd-ruc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="822" y="-51"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="XM2-dc-dJc"/>
+        <segue reference="YNf-EG-9jK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
